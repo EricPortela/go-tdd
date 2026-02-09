@@ -1,6 +1,7 @@
 package mysolution
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -147,6 +148,17 @@ func Test_SumAll2(t *testing.T) {
 
 			assert.Equal(t, testCase.expected, sum)
 		})
+	}
+}
+
+func Test_SumAllTails(t *testing.T) {
+	t.Parallel()
+
+	got := SumAllTails([]int{1, 2}, []int{0, 9})
+	want := []int{2, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
 	}
 
 }
