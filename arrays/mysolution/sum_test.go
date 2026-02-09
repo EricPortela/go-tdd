@@ -148,5 +148,37 @@ func Test_SumAll2(t *testing.T) {
 			assert.Equal(t, testCase.expected, sum)
 		})
 	}
+}
 
+func Test_SumAllTails(t *testing.T) {
+	t.Parallel()
+
+	testCases := map[string]struct {
+		slices   [][]int
+		expected []int
+	}{
+		"test empty slice": {
+			slices: [][]int{
+				{},
+				{1, 2, 3},
+			},
+			expected: []int{0, 5},
+		},
+		"test two slices": {
+			slices: [][]int{
+				{1, 2, 3},
+				{0, 9},
+			},
+			expected: []int{5, 9},
+		},
+	}
+
+	for testName, testCase := range testCases {
+		t.Run(testName, func(t *testing.T) {
+			t.Parallel()
+			result := SumAllTails(testCase.slices...)
+
+			assert.Equal(t, testCase.expected, result)
+		})
+	}
 }
