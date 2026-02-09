@@ -22,7 +22,12 @@ func SumAllTails(sliceOfNumbers ...[]int) []int {
 	var sumTails []int
 
 	for _, numbers := range sliceOfNumbers {
-		sumTails = append(sumTails, Sum(numbers[1:]))
+
+		if len(numbers) > 0 {
+			sumTails = append(sumTails, Sum(numbers[1:]))
+		} else {
+			sumTails = append(sumTails, 0)
+		}
 	}
 
 	return sumTails
