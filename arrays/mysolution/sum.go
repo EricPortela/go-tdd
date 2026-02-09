@@ -12,6 +12,8 @@ func SumAll(sliceOfNumbers ...[]int) []int {
 
 	sum := make([]int, 0)
 
+	//test
+
 	for _, numbers := range sliceOfNumbers {
 		sum = append(sum, Sum(numbers))
 	}
