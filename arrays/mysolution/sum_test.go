@@ -121,7 +121,7 @@ func Test_SumAll2(t *testing.T) {
 			slices: [][]int{
 				{1, 2, 3},
 			},
-			expected: []int{5},
+			expected: []int{6},
 		},
 		"two slices": {
 			slices: [][]int{
