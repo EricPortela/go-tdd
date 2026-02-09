@@ -31,7 +31,7 @@ type PlayerServer struct {
 }
 
 const jsonContentType = "application/json"
-const htmlTemplatePath = "game.html"
+const htmlTemplatePath = "websockets/v1/game.html"
 
 // NewPlayerServer creates a PlayerServer with routing configured.
 func NewPlayerServer(store PlayerStore) (*PlayerServer, error) {
