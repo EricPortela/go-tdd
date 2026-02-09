@@ -1,7 +1,6 @@
 package mysolution
 
 import (
-	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -154,11 +153,32 @@ func Test_SumAll2(t *testing.T) {
 func Test_SumAllTails(t *testing.T) {
 	t.Parallel()
 
-	got := SumAllTails([]int{1, 2}, []int{0, 9})
-	want := []int{2, 9}
-
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v want %v", got, want)
+	testCases := map[string]struct {
+		slices   [][]int
+		expected []int
+	}{
+		"test empty slice": {
+			slices: [][]int{
+				{},
+				{1, 2, 3},
+			},
+			expected: []int{0, 5},
+		},
+		"test two slices": {
+			slices: [][]int{
+				{1, 2, 3},
+				{0, 9},
+			},
+			expected: []int{5, 9},
+		},
 	}
 
+	for testName, testCase := range testCases {
+		t.Run(testName, func(t *testing.T) {
+			t.Parallel()
+			result := SumAllTails(testCase.slices...)
+
+			assert.Equal(t, testCase.expected, result)
+		})
+	}
 }
